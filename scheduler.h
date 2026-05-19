@@ -2,7 +2,7 @@
  * @file scheduler.h
  * @author eieiof11
  * @brief タスクスケジュール管理ライブラリ
- * @version 2.0
+ * @version 2.1
  * @date 2026-05-19
  *
  * @copyright Copyright (c) 2026
@@ -57,8 +57,10 @@ void* scheduler_get_task_arg(const char *name);
 
 /**
  * @brief 指定したタスクに通知を送る
+ * @param name: タスク名
+ * 通知されたタスクは、次回のスケジューラ更新時に優先的に実行される
  */
-void scheduler_notify_by_name(const char *name);
+void scheduler_notify_task(const char *name);
 
 /**
  * @brief スケジューラの更新関数

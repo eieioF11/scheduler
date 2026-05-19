@@ -77,7 +77,7 @@ int main(void) {
         // 周期（500ms）を無視して、今すぐ "Display" タスクを動かすよう通知を投げる！
         if (simulated_system_tick == 250) {
             printf("[%4dms] [外部イベント発生] Displayタスクへ即時実行通知を送信！\n", simulated_system_tick);
-            scheduler_notify_by_name("Display");
+            scheduler_notify_task("Display");
         }
 
         // スケジューラの更新関数を毎回呼び出す

@@ -60,7 +60,7 @@ void* scheduler_get_task_arg(const char *name) {
     return NULL;
 }
 
-void scheduler_notify_by_name(const char *name) {
+void scheduler_notify_task(const char *name) {
     if (name == NULL) return;
 
     for (int i = 0; i < MAX_TASKS; i++) {
