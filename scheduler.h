@@ -1,3 +1,13 @@
+/**
+ * @file scheduler.h
+ * @author eieiof11
+ * @brief タスクスケジュール管理ライブラリ
+ * @version 2.0
+ * @date 2026-05-19
+ *
+ * @copyright Copyright (c) 2026
+ *
+ */
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
@@ -12,10 +22,20 @@ typedef enum {
     NUM_PRIORITIES
 } task_priority_t;
 
-// タスク関数の型（引数として、自身に紐づいた void *arg が渡される）
+/**
+ * @brief タスク関数の型定義
+ */
 typedef void (*task_function)(void *arg);
+
+/**
+ * @brief 時刻取得関数の型定義（例：1msごとにインクリメントされるカウンタを返す関数）
+ */
 typedef uint32_t (*get_tick_function)(void);
 
+/**
+ * @brief スケジューラの初期化関数
+ * @param tick_func: 時刻取得関数を登録する
+ */
 void scheduler_init(get_tick_function tick_func);
 
 /**
