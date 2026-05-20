@@ -56,6 +56,18 @@ bool scheduler_add_task(const char *name, task_function func, void *arg, uint32_
 void* scheduler_get_task_arg(const char *name);
 
 /**
+ * @brief 指定したタスクの周期実行（タイマー駆動）を有効化する
+ * @param name: タスク名
+ */
+void scheduler_enable_period(const char *name);
+
+/**
+ * @brief 指定したタスクの周期実行（タイマー駆動）を無効化する
+ * @param name: タスク名。無効化中も、notifyによる手動実行は受け付けます。
+ */
+void scheduler_disable_period(const char *name);
+
+/**
  * @brief 指定したタスクに通知を送る
  * @param name: タスク名
  * 通知されたタスクは、次回のスケジューラ更新時に優先的に実行される
